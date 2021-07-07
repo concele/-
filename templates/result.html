@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chose</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+    <script src="../static/js/jquery-3.6.0.js"></script>
+</head>
+<body>
+ <form action="" method="post">
+    <h1 class="tt">电影推荐</h1>
+    <li>
+        <div class="num0">
+            <h2 id="t0"></h2>
+            <h2></h2>
+            <h2></h2>
+        </div>
+    </li>
+         <li>
+        <div class="num1">
+            <h2 id="t1"></h2>
+            <h2></h2>
+            <h2></h2>
+        </div>
+    </li>
+         <li>
+        <div class="num2">
+            <h2 id="t2"></h2>
+            <h2></h2>
+            <h2></h2>
+        </div>
+    </li>
+
+
+
+
+
+     <script>
+function back_movie_data() {
+        $.ajax({
+            url:"/back",
+            success:function (data) {
+                $(".num0 h2").eq(0).text(data.M_ID0);
+                $(".num0 h2").eq(1).text(data.TITLE0);
+                $(".num0 h2").eq(2).text(data.GENRES0);
+
+                $(".num1 h2").eq(0).text(data.M_ID1);
+                $(".num1 h2").eq(1).text(data.TITLE1);
+                $(".num1 h2").eq(2).text(data.GENRES1);
+
+                $(".num2 h2").eq(0).text(data.M_ID2);
+                $(".num2 h2").eq(1).text(data.TITLE2);
+                $(".num2 h2").eq(2).text(data.GENRES2);
+
+
+            },
+            error:function (xhr,type,errorThrown) {
+
+            }
+        })
+    }
+    back_movie_data()
+     </script>
+
+
+  </form>
+
+</body>
+</html>
