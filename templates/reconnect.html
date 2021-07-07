@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chose</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+    <script src="../static/js/jquery-3.6.0.js"></script>
+</head>
+<body>
+ <form action="http://localhost:5000/result" method="post">
+    <h1 class="tt">电影推荐</h1>
+    <li>
+        <div class="num0">
+
+            <input type="checkbox" class="choice" id="choice0">
+            <h2 id="t0"></h2>
+            <h2></h2>
+            <h2></h2>
+        </div>
+    </li>
+         <li>
+        <div class="num1">
+            <input type="checkbox" class="choice" id="choice1">
+            <h2 id="t1"></h2>
+            <h2></h2>
+            <h2></h2>
+        </div>
+    </li>
+         <li>
+        <div class="num2">
+            <input type="checkbox" class="choice" id="choice2">
+            <h2 id="t2"></h2>
+            <h2></h2>
+            <h2></h2>
+        </div>
+    </li>
+         <li>
+        <div class="num3">
+            <input type="checkbox" class="choice" id="choice3">
+            <h2 id="t3"></h2>
+            <h2></h2>
+            <h2></h2>
+        </div>
+    </li>
+         <li>
+        <div class="num4">
+            <input type="checkbox" class="choice" id="choice4">
+            <h2 id="t4"></h2>
+            <h2></h2>
+            <h2></h2>
+        </div>
+    </li>
+         <li>
+        <div class="num5">
+            <input type="checkbox" class="choice" id="choice5">
+            <h2 id="t5"></h2>
+            <h2></h2>
+            <h2></h2>
+        </div>
+    </li>
+         <li>
+        <div class="num6">
+            <input type="checkbox" class="choice" id="choice6">
+            <h2 id="t6"></h2>
+            <h2></h2>
+            <h2></h2>
+        </div>
+    </li>
+         <li>
+        <div class="num7">
+            <input type="checkbox" class="choice" id="choice7">
+            <h2 id="t7"></h2>
+            <h2></h2>
+            <h2></h2>
+        </div>
+    </li>
+         <li>
+        <div class="num8">
+            <input type="checkbox" class="choice" id="choice8">
+            <h2 id="t8"></h2>
+            <h2></h2>
+            <h2></h2>
+        </div>
+    </li>
+         <li>
+        <div class="num9">
+            <input type="checkbox" class="choice" id="choice9">
+            <h2 id="t9"></h2>
+            <h2></h2>
+            <h2></h2>
+        </div>
+    </li>
+
+
+    <button onclick="submit_id()">submit</button>
+
+     <script>
+         function submit_id()
+         {
+
+            var box0=document.getElementById("choice0");
+            var box1=document.getElementById("choice1");
+            var box2=document.getElementById("choice2");
+            var box3=document.getElementById("choice3");
+            var box4=document.getElementById("choice4");
+            var box5=document.getElementById("choice5");
+            var box6=document.getElementById("choice6");
+            var box7=document.getElementById("choice7");
+            var box8=document.getElementById("choice8");
+            var box9=document.getElementById("choice9");
+
+            var data=new Array(10);
+            if(box0.checked) {
+                data.unshift(document.getElementById('t0').innerText);
+            }if(box1.checked) {
+                data.unshift(document.getElementById('t1').innerText);
+            }if(box2.checked) {
+                data.unshift(document.getElementById('t2').innerText);
+            }if(box3.checked) {
+                data.unshift(document.getElementById('t3').innerText);
+            }if(box4.checked) {
+                data.unshift(document.getElementById('t4').innerText);
+            }if(box5.checked) {
+                data.unshift(document.getElementById('t5').innerText);
+            }if(box6.checked) {
+                data.unshift(document.getElementById('t6').innerText);
+            }if(box7.checked) {
+                data.unshift(document.getElementById('t7').innerText);
+            }if(box8.checked) {
+                data.unshift(document.getElementById('t8').innerText);
+            }if(box9.checked) {
+                data.unshift(document.getElementById('t9').innerText);
+            }
+
+
+            $.post("/result",{"data": data}).done(function(data){
+
+            }).fail(function(){
+
+            });
+         }
+     </script>
+
+     <script>
+    function load_movie_data() {
+        $.ajax({
+            url:"/chose_movie",
+            success:function (data) {
+                $(".num0 h2").eq(0).text(data.M_ID0);
+                $(".num0 h2").eq(1).text(data.TITLE0);
+                $(".num0 h2").eq(2).text(data.GENRES0);
+
+                $(".num1 h2").eq(0).text(data.M_ID1);
+                $(".num1 h2").eq(1).text(data.TITLE1);
+                $(".num1 h2").eq(2).text(data.GENRES1);
+
+                $(".num2 h2").eq(0).text(data.M_ID2);
+                $(".num2 h2").eq(1).text(data.TITLE2);
+                $(".num2 h2").eq(2).text(data.GENRES2);
+
+                $(".num3 h2").eq(0).text(data.M_ID3);
+                $(".num3 h2").eq(1).text(data.TITLE3);
+                $(".num3 h2").eq(2).text(data.GENRES3);
+
+                $(".num4 h2").eq(0).text(data.M_ID4);
+                $(".num4 h2").eq(1).text(data.TITLE4);
+                $(".num4 h2").eq(2).text(data.GENRES4);
+
+                $(".num5 h2").eq(0).text(data.M_ID5);
+                $(".num5 h2").eq(1).text(data.TITLE5);
+                $(".num5 h2").eq(2).text(data.GENRES5);
+
+                $(".num6 h2").eq(0).text(data.M_ID6);
+                $(".num6 h2").eq(1).text(data.TITLE6);
+                $(".num6 h2").eq(2).text(data.GENRES6);
+
+                $(".num7 h2").eq(0).text(data.M_ID7);
+                $(".num7 h2").eq(1).text(data.TITLE7);
+                $(".num7 h2").eq(2).text(data.GENRES7);
+
+                $(".num8 h2").eq(0).text(data.M_ID8);
+                $(".num8 h2").eq(1).text(data.TITLE8);
+                $(".num8 h2").eq(2).text(data.GENRES8);
+
+                $(".num9 h2").eq(0).text(data.M_ID9);
+                $(".num9 h2").eq(1).text(data.TITLE9);
+                $(".num9 h2").eq(2).text(data.GENRES9);
+
+
+            },
+            error:function (xhr,type,errorThrown) {
+
+            }
+        })
+    }
+    load_movie_data()
+    </script>
+  </form>
+
+</body>
+</html>
