@@ -1,0 +1,41 @@
+body{
+  margin: 0;
+  padding: 0;
+
+  background: url(../image/wallpaper.png);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+form{
+  text-align: center;
+
+}
+
+h1{
+  margin: 80px;
+  margin-left:-700px;
+  font-weight: 300;
+
+  font-size: 55px;
+
+}
+.tt{
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+  opacity: 0.9;
+}
+
+li{
+    overflow: hidden;
+    list-style: none;
+    border-bottom: 1px dashed #ccc;
+    padding: 12px 0;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+h2{
+  margin-left:-200px;
+  font-size: 15px;
+}
